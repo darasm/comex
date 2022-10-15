@@ -6,7 +6,6 @@ import com.bootcamp.comex.entrypoints.controller.dto.CategoryDto;
 import com.bootcamp.comex.entrypoints.controller.forms.CategoryForm;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -24,7 +23,6 @@ import java.net.URI;
 public class CategoryController {
 
     private final ICategoryRepository categoryRepository;
-
     private final ModelMapper modelMapper;
 
     @PostMapping
