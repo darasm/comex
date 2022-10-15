@@ -1,5 +1,5 @@
 package com.bootcamp.comex.enums;
 
 public enum CategoryStatus {
-    ACTIVE
+    ACTIVE, INACTIVE
 }

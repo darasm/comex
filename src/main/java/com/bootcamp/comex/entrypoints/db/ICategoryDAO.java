@@ -1,4 +1,4 @@
-package com.bootcamp.comex.entrypoints;
+package com.bootcamp.comex.entrypoints.db;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
