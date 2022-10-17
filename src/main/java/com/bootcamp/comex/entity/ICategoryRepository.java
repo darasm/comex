@@ -3,16 +3,10 @@ package com.bootcamp.comex.entity;
 import java.util.List;
 
 public interface ICategoryRepository {
-
-    List<CategoryEntity> listAllCategories();
-
-    CategoryEntity registerNewCategory(CategoryEntity categoryEntity);
-
+    List<Category> listAllCategories();
+    Category registerNewCategory(Category category);
     void deleteCategory(Long id);
-
-    CategoryEntity searchCategory(Long id);
-
-    CategoryEntity updateCategory(Long id, CategoryEntity categoryEntity);
-
-    CategoryEntity updateCategoryStatus(Long id);
+    Category searchCategory(Long id);
+    Category updateCategory(Long id, Category category);
+    Category updateCategoryStatus(Long id);
 }

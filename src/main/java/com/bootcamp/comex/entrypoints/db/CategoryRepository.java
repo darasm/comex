@@ -1,67 +1,70 @@
 package com.bootcamp.comex.entrypoints.db;
 
-import com.bootcamp.comex.entity.CategoryEntity;
+import com.bootcamp.comex.entity.Category;
 import com.bootcamp.comex.entity.ICategoryRepository;
 import com.bootcamp.comex.enums.CategoryStatus;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
-import org.springframework.stereotype.Component;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 @RequiredArgsConstructor
-@Component
+@Repository
 public class CategoryRepository implements ICategoryRepository {
-
     private final ICategoryDAO categoryDAO;
-
-    private final ModelMapper modelMapper;
+    @Autowired
+    private ModelMapper modelMapper;
 
     @Override
-    public List<CategoryEntity> listAllCategories() {
-        List<Category> categories = categoryDAO.findAll();
-        return categories.stream().map(m -> modelMapper.map(m, CategoryEntity.class)).toList();
+    public List<Category> listAllCategories() {
+        List<CategoryEntity> categories = categoryDAO.findAll();
+        return categories.stream().map(m -> modelMapper.map(m, Category.class)).toList();
     }
 
     @Override
-    public CategoryEntity registerNewCategory(CategoryEntity categoryEntity) {
-        Category category = categoryDAO.save(modelMapper.map(categoryEntity, Category.class));
-        return modelMapper.map(category, CategoryEntity.class);
+    public Category registerNewCategory(Category category) {
+        CategoryEntity categoryEntityInput = modelMapper.map(category, CategoryEntity.class);
+        CategoryEntity categoryEntity = categoryDAO.save(categoryEntityInput);
+        return modelMapper.map(categoryEntity, Category.class);
     }
 
     @Override
     public void deleteCategory(Long id) {
-        Category category = categoryDAO.findById(id)
+        CategoryEntity categoryEntity = categoryDAO.findById(id)
                 .orElseThrow(RuntimeException::new);
-        categoryDAO.deleteById(category.getId());
+        categoryDAO.deleteById(categoryEntity.getId());
 
     }
 
     @Override
-    public CategoryEntity searchCategory(Long id) {
-        Category category = categoryDAO.findById(id)
+    public Category searchCategory(Long id) {
+        CategoryEntity categoryEntity = categoryDAO.findById(id)
                 .orElseThrow(RuntimeException::new);
-        return modelMapper.map(category, CategoryEntity.class);
+        return modelMapper.map(categoryEntity, Category.class);
     }
 
     @Override
-    public CategoryEntity updateCategory(Long id, CategoryEntity categoryEntity) {
-        Category category = categoryDAO.findById(id)
+    public Category updateCategory(Long id, Category category) {
+        CategoryEntity categoryEntity = categoryDAO.findById(id)
                 .orElseThrow(RuntimeException::new);
-        category.setName(categoryEntity.getName());
-        return modelMapper.map(category, CategoryEntity.class);
+        categoryEntity.setName(category.getName());
+        return modelMapper.map(categoryEntity, Category.class);
     }
 
     @Override
-    public CategoryEntity updateCategoryStatus(Long id) {
-        Category category = categoryDAO.findById(id)
+    public Category updateCategoryStatus(Long id) {
+        CategoryEntity categoryEntity = categoryDAO.findById(id)
                 .orElseThrow(RuntimeException::new);
 
-        if (category.getStatus().equals(CategoryStatus.ACTIVE)){
-            category.setStatus(CategoryStatus.INACTIVE);
+        if (categoryEntity.getStatus().equals(CategoryStatus.ACTIVE)){
+            categoryEntity.setStatus(CategoryStatus.INACTIVE);
         } else {
-            category.setStatus(CategoryStatus.ACTIVE);
+            categoryEntity.setStatus(CategoryStatus.ACTIVE);
         }
-        return modelMapper.map(category, CategoryEntity.class);
+        categoryDAO.save(categoryEntity);
+
+        return modelMapper.map(categoryEntity, Category.class);
     }
 }

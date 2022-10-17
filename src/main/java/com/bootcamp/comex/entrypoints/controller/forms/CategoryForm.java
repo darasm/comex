@@ -1,5 +1,5 @@
 package com.bootcamp.comex.entrypoints.controller.forms;
-import com.bootcamp.comex.entity.CategoryEntity;
+import com.bootcamp.comex.entity.Category;
 import com.bootcamp.comex.enums.CategoryStatus;
 import lombok.Data;
 
@@ -15,8 +15,8 @@ public class CategoryForm {
     @Size(min = 2)
     private String name;
 
-    public CategoryEntity changeToCategory() {
-        return CategoryEntity.builder()
+    public Category changeToCategory() {
+        return Category.builder()
                 .name(this.name)
                 .status(CategoryStatus.ACTIVE)
                 .build();
