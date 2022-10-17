@@ -1,11 +1,10 @@
-package com.bootcamp.comex.entrypoints.controller;
+package com.bootcamp.comex.entrypoints.controller.category;
 
-import com.bootcamp.comex.entity.Category;
-import com.bootcamp.comex.entity.ICategoryRepository;
-import com.bootcamp.comex.entrypoints.controller.dto.CategoryDto;
-import com.bootcamp.comex.entrypoints.controller.forms.CategoryForm;
-import com.bootcamp.comex.entrypoints.controller.forms.UpdatedCategoryForm;
-import com.bootcamp.comex.entrypoints.db.CategoryRepository;
+import com.bootcamp.comex.entity.category.Category;
+import com.bootcamp.comex.entity.category.ICategoryRepository;
+import com.bootcamp.comex.entrypoints.controller.category.forms.CategoryForm;
+import com.bootcamp.comex.entrypoints.controller.category.dto.CategoryDto;
+import com.bootcamp.comex.entrypoints.controller.category.forms.UpdatedCategoryForm;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.http.ResponseEntity;

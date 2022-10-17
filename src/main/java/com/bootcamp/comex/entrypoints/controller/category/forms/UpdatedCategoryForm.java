@@ -1,4 +1,4 @@
-package com.bootcamp.comex.entrypoints.controller.forms;
+package com.bootcamp.comex.entrypoints.controller.category.forms;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;

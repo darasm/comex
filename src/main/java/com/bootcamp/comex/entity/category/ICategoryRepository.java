@@ -1,4 +1,4 @@
-package com.bootcamp.comex.entity;
+package com.bootcamp.comex.entity.category;
 
 import java.util.List;
 

@@ -1,4 +1,5 @@
-package com.bootcamp.comex.entrypoints.controller.dto;
+package com.bootcamp.comex.entrypoints.controller.products.dto;
+
 
 import com.bootcamp.comex.enums.CategoryStatus;
 import lombok.AllArgsConstructor;
@@ -6,14 +7,14 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@AllArgsConstructor
-@NoArgsConstructor
-@Builder
 @Data
-public class CategoryDto {
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+public class ProductCategoryDto {
 
     private Long id;
     private String name;
-    private CategoryStatus status;
+    private CategoryStatus status = CategoryStatus.ACTIVE;
 
 }

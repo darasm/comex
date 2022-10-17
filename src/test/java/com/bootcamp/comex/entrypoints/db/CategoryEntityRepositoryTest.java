@@ -1,6 +1,9 @@
 package com.bootcamp.comex.entrypoints.db;
 
-import com.bootcamp.comex.entity.Category;
+import com.bootcamp.comex.entity.category.Category;
+import com.bootcamp.comex.entrypoints.db.category.CategoryEntity;
+import com.bootcamp.comex.entrypoints.db.category.CategoryRepository;
+import com.bootcamp.comex.entrypoints.db.category.ICategoryDAO;
 import com.bootcamp.comex.enums.CategoryStatus;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;

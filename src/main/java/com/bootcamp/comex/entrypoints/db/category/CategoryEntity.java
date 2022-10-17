@@ -1,4 +1,4 @@
-package com.bootcamp.comex.entrypoints.db;
+package com.bootcamp.comex.entrypoints.db.category;
 
 import com.bootcamp.comex.enums.CategoryStatus;
 import lombok.*;

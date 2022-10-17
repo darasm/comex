@@ -1,7 +1,7 @@
-package com.bootcamp.comex.entrypoints.db;
+package com.bootcamp.comex.entrypoints.db.category;
 
-import com.bootcamp.comex.entity.Category;
-import com.bootcamp.comex.entity.ICategoryRepository;
+import com.bootcamp.comex.entity.category.Category;
+import com.bootcamp.comex.entity.category.ICategoryRepository;
 import com.bootcamp.comex.enums.CategoryStatus;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;

@@ -1,5 +1,5 @@
-package com.bootcamp.comex.entrypoints.controller.forms;
-import com.bootcamp.comex.entity.Category;
+package com.bootcamp.comex.entrypoints.controller.category.forms;
+import com.bootcamp.comex.entity.category.Category;
 import com.bootcamp.comex.enums.CategoryStatus;
 import lombok.Data;
 
